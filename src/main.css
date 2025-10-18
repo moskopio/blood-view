@@ -1,0 +1,14 @@
+:root {
+  --highlight-color: #FFF;
+  --shadow-color: #000;
+  --bg-color: #0f1822;
+  --accent-color-1: #ff4759;
+  --accent-color-2: #004c7b;
+  
+  --elements-border: 2px;
+  --elements-radius: 3px;
+}
+
+body {
+  background: var(--bg-color);
+}

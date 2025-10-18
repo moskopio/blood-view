@@ -108,4 +108,26 @@ export const MockSample05 = {
   sodium_unit:          "ul",
   total_calcium_unit:   "mgdl",
   total_protein_unit:   "gdl"
-} as ImportedData
+}
+
+export const MockSample06 = {
+  client_id:            "07608686",
+  date_testing:         "2022-10-14",
+  date_birthdate:       "1950-01-01",
+  gender:               1,
+  ethnicity:            5,
+  creatine:             1.19,
+  chloride:             90.52,
+  fasting_glucose:      118.46,
+  potassium:            3.98,
+  sodium:               110.47,
+  total_calcium:        13.44,
+  total_protein:        9.33,
+  creatine_unit:        "mgdl",
+  chloride_unit:        "mmoll",
+  fasting_glucose_unit: "mgdl",
+  potassium_unit:       "mmoll",
+  sodium_unit:          "ul",
+  total_calcium_unit:   "mgdl",
+  total_protein_unit:   "gdl"
+}

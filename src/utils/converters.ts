@@ -12,7 +12,7 @@ export function gdlToMgdl(gdl: number) {
   return gdl * 1000
 }
 
-export function convertValue(value: number, unit: Unit): number {
+export function convertValue(value: number, unit: Unit) {
   switch (unit) {
     case 'mgdl': 
       return value

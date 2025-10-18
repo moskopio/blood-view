@@ -2,12 +2,12 @@ export interface Dict<T> {
   [key: string]: T
 }
 
-// Utility function for forcing incorrect datatypes for tests
-export function force<T>(value: unknown): T {
-  return value as T
+export type DeepPartial<T> = {
+  [K in keyof T]?: T[K] extends object ? DeepPartial<T[K]> : T[K]
 }
 
 export const UnitValues = ['mgdl', 'mmoll', 'ul', 'gdl'] as const
+
 export type Unit = typeof UnitValues[number]
 
 export interface Sample {
@@ -27,7 +27,6 @@ export interface Client {
   ethnicity: number
   samples:   Dict<Sample>
 }
-export type Clients = Client[]
 
 export interface ImportedData {
   client_id:            string
@@ -50,7 +49,3 @@ export interface ImportedData {
   total_calcium_unit:   Unit
   total_protein_unit:   Unit
 }
-
-
-
-

@@ -1,6 +1,8 @@
-import { ImportedData, Unit, UnitValues } from "src/type"
+import { ImportedData } from "src/type"
+import { isNumber, isString, isUnit } from "src/utils/utils"
+import { isDate } from "util/types"
 
-export function validateSample(sample: ImportedData): boolean {
+export function validateSample(sample: ImportedData) {
   if (!sample) {
     return false
   }
@@ -31,19 +33,3 @@ export function validateSample(sample: ImportedData): boolean {
   return isIdValid && areMetadataValid && areNumericsValid && areUnitsValid
 }
 
-
-function isString(value: unknown): value is string {
-  return typeof (value) === 'string' && value !== ''
-}
-
-function isDate(value: unknown): value is string {
-  return isString(value) && !!Date.parse(value)
-}
-
-function isNumber(x: unknown): x is number {
-  return !isNaN(x as number)
-}
-
-function isUnit(value: unknown): value is Unit {
-  return typeof value === 'string' && UnitValues.includes(value as Unit)
-}

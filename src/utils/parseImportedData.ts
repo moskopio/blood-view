@@ -1,8 +1,8 @@
-import { Client, Dict, ImportedData, Sample } from "src/type"
+import { Dict, ImportedData, Sample } from "src/type"
 import { convertValue } from "src/utils/converters"
 import { validateSample } from "src/utils/validateSample"
 
-export function parseImportedData(data: ImportedData[]): Client[] {
+export function parseImportedData(data: ImportedData[]) {
   // 1. Filter out incorrect samples
   const validData = data.filter(validateSample)
   
@@ -18,12 +18,10 @@ export function parseImportedData(data: ImportedData[]): Client[] {
   })
   
   // 4. Create Clients data structure
-  const clients = Object.values(dataByClientId).map(parseClient)
-
-  return clients
+  return Object.values(dataByClientId).map(parseClient)
 }
 
-function parseClient(data: ImportedData[]): Client {
+function parseClient(data: ImportedData[]) {
   // Since various samples can have different meta data, we should grab meta from the last sample 
   // and assume it is the most accurate. 
   // Note: At this point we know that the data is sorted by date_testing.
@@ -40,7 +38,7 @@ function parseClient(data: ImportedData[]): Client {
 }
 
 // TODO: Do I really want to process samples to common values? I'm not sure
-function parseSample(data: ImportedData): Sample {
+function parseSample(data: ImportedData) {
   const creatine = convertValue(data.creatine, data.creatine_unit);
   const chloride = convertValue(data.chloride, data.chloride_unit);
   const glucose = convertValue(data.fasting_glucose, data.fasting_glucose_unit);
