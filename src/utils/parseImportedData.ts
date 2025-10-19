@@ -1,4 +1,4 @@
-import { Dict, ImportedData, Sample } from "src/type"
+import { Dict, ImportedData } from "src/type"
 import { convertValue } from "src/utils/converters"
 import { validateSample } from "src/utils/validateSample"
 
@@ -31,8 +31,7 @@ function parseClient(data: ImportedData[]) {
   const birthdate = lastSample.date_birthdate
   const gender = lastSample.gender
   const ethnicity = lastSample.ethnicity
-  const samples: Dict<Sample> = { }
-  data.forEach(d => samples[d.date_testing] = parseSample(d))
+  const samples = data.map(parseSample)
   
   return { id, birthdate, gender, ethnicity, samples }
 }
@@ -46,6 +45,7 @@ function parseSample(data: ImportedData) {
   const sodium = convertValue(data.sodium, data.sodium_unit);
   const calcium = convertValue(data.total_calcium, data.total_calcium_unit);
   const protein = convertValue(data.total_protein, data.total_protein_unit);
+  const date = data.date_testing;
   
-  return { creatine, chloride, glucose, potassium, sodium, calcium, protein }
+  return { creatine, chloride, glucose, potassium, sodium, calcium, protein, date }
 }

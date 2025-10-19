@@ -1,0 +1,51 @@
+.data-import {
+  width: var(--panel-width);
+  color: var(--ink-100);
+  font-family: Inter, system-ui, sans-serif;
+  display: grid;
+  gap: 6px;
+  margin-right: 28px;
+  /* keeps shared vertical divider off panel */
+}
+
+.data-import-pill {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  width: 100%;
+  padding: 4px 10px;
+  border-radius: 20px;
+  background: var(--blue-700);
+  border: 1px solid var(--border-weak);
+  min-height: 22px;
+  flex-wrap: wrap;
+}
+
+.data-import-button {
+  height: 22px;
+  padding: 0 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border-mid);
+  background: var(--blue-800);
+  color: var(--ink-60);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .3px;
+  text-transform: uppercase;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.data-import-input {
+  flex: 1;
+  height: 22px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.20);
+  background: var(--blue-900);
+  color: var(--ink-80);
+  font-size: 11px;
+  padding: 0 8px;
+  outline: none;
+  min-width: 0;
+}

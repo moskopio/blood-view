@@ -16,7 +16,7 @@ describe('parseImportedData', () => {
     const results = parseImportedData(data)
     expect(results.length).toEqual(1)
     expect(results[0].id).toEqual(MockSample01.client_id)
-    expect(Object.values(results[0].samples).length).toEqual(3)
+    expect(results[0].samples.length).toEqual(3)
   })
   
   it('filters out incorrect data', () => {
@@ -28,7 +28,7 @@ describe('parseImportedData', () => {
     const results = parseImportedData(data)
     expect(results.length).toEqual(1)
     expect(results[0].id).toEqual(MockSample01.client_id)
-    expect(Object.values(results[0].samples).length).toEqual(1)
+    expect(results[0].samples.length).toEqual(1)
   })
   
     it('handles multiple clients', () => {
@@ -45,9 +45,9 @@ describe('parseImportedData', () => {
     const result1 = results.find(r => r.id === '123') as Client
     const result2 = results.find(r => r.id === '456') as Client
     
-    expect(Object.values(result0.samples).length).toEqual(2)
-    expect(Object.values(result1.samples).length).toEqual(2)
-    expect(Object.values(result2.samples).length).toEqual(1)
+    expect(result0.samples.length).toEqual(2)
+    expect(result1.samples.length).toEqual(2)
+    expect(result2.samples.length).toEqual(1)
   })
 
 })

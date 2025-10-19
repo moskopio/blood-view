@@ -1,30 +1,37 @@
-import { createContext, useMemo, useReducer } from "react"
-import { Client, DeepPartial, ImportedData } from "src/type"
-import { MockSample01, MockSample02, MockSample03, MockSample04, MockSample05, MockSample06 } from "src/utils/ _tests_/mocks"
-import { deepSet } from "src/utils/merge"
-import { parseImportedData } from "src/utils/parseImportedData"
+import { createContext, Dispatch, useMemo, useReducer } from 'react'
+import { Client, DeepPartial, GraphType, ImportedData } from 'src/type'
+import { MockSample01, MockSample02, MockSample03, MockSample04, MockSample05, MockSample06 } from 'src/utils/ _tests_/mocks'
+import { deepSet } from 'src/utils/merge'
+import { parseImportedData } from 'src/utils/parseImportedData'
 
-interface AppState {
+
+interface State {
   clients:        Client[]
-  selectedClient: string
+  selectedClient: number
+  selectedGraph:  GraphType
 }
 
+interface AppState {
+  state:         State
+  stateDispatch: Dispatch<DeepPartial<State>>
+}
 
-export function createDefaultAppState() {
+export function createDefaultState() {
   //TOOD: not use mock data!
   const data = [MockSample01, MockSample02, MockSample03, MockSample04, MockSample05, MockSample06] as ImportedData[]
   const clients = parseImportedData(data)
-  const selectedClient = MockSample01.client_id 
+  const selectedClient = 0
+  const selectedGraph = 'calcium' as GraphType
   
-  return { clients, selectedClient }
+  return { clients, selectedClient, selectedGraph }
 }
 
-export function stateReducer(state: AppState, action: DeepPartial<AppState>) {
-  return deepSet<AppState>(state, action)
+export function stateReducer(state: State, action: DeepPartial<State>) {
+  return deepSet<State>(state, action)
 }
 
 export function useAppState() {
-  const [state, stateDispatch] = useReducer(stateReducer, createDefaultAppState())
+  const [state, stateDispatch] = useReducer(stateReducer, createDefaultState())
   
   return useMemo(() => ({ state, stateDispatch }), [state, stateDispatch])
 }

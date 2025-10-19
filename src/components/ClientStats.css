@@ -1,0 +1,122 @@
+.stats {
+  display: flex;
+  align-items: stretch;
+  width: var(--panel-width);
+  color: var(--ink-100);
+  font-family: Inter, system-ui, sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-right: 28px;
+  /* keeps shared vertical divider off panel */
+}
+
+.stats-id-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 10px;
+  border-radius: 16px;
+  border: 1px solid var(--border-mid);
+  background: var(--blue-800);
+  color: var(--accent-pink-200);
+  font-weight: 800;
+  letter-spacing: .5px;
+  font-size: 13px;
+  text-transform: uppercase;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.stats-caret {
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 6px solid #ffb3ca;
+  transform: translateY(1px);
+}
+
+.stats-hr {
+  height: 1px;
+  background: var(--divider-soft);
+  margin: 6px 0 8px;
+  border-radius: 1px;
+}
+
+.stats-pill {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  width: 100%;
+  padding: 4px 10px;
+  border-radius: 20px;
+  background: var(--blue-700);
+  border: 1px solid var(--border-weak);
+  min-height: 22px;
+  flex-wrap: wrap;
+}
+
+.stats-label {
+  color: var(--ink-50);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .3px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.stats-value {
+  color: var(--ink-80);
+  font-size: 11px;
+  font-weight: 700;
+  text-align: right;
+  line-height: 1.1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.stats-id-root {
+  position: relative;
+  display: inline-block;
+}
+
+.stats-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 6px;
+  width: 100%;
+  max-height: 220px;
+  overflow-y: auto;
+  background: var(--blue-900);
+  border: 1px solid var(--border-mid);
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .35);
+  z-index: 50;
+  padding: 6px;
+}
+
+.stats-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 14px;
+  background: var(--blue-700);
+  border: 1px solid var(--border-weak);
+  color: var(--ink-80);
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.stats-item-active {
+  border: 1px solid rgba(255, 42, 109, 0.6);
+}
+
+.stats-item-focus {
+  outline: 1px solid rgba(180, 210, 255, 0.4);
+}

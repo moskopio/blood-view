@@ -1,6 +1,5 @@
 import { ImportedData } from "src/type"
-import { isNumber, isString, isUnit } from "src/utils/utils"
-import { isDate } from "util/types"
+import { isDate, isNumber, isString, isUnit } from "src/utils/utils"
 
 export function validateSample(sample: ImportedData) {
   if (!sample) {

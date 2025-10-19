@@ -7,10 +7,10 @@ export type DeepPartial<T> = {
 }
 
 export const UnitValues = ['mgdl', 'mmoll', 'ul', 'gdl'] as const
-
 export type Unit = typeof UnitValues[number]
 
 export interface Sample {
+  date:      string
   calcium:   number
   chloride:  number
   creatine:  number
@@ -20,12 +20,18 @@ export interface Sample {
   sodium:    number
 }
 
+export const GraphTypesValues = ['calcium', 'chloride', 'creatine', 'glucose', 'potassium', 'protein', 'sodium', 'stats'] as const
+export type GraphType = typeof GraphTypesValues[number]
+
+
+  // Calcium, Chloride, Creatine, Glucose, Potassium, Protein, Sodium
+
 export interface Client {
   id:        string
   birthdate: string
   gender:    number
   ethnicity: number
-  samples:   Dict<Sample>
+  samples:   Sample[]
 }
 
 export interface ImportedData {
