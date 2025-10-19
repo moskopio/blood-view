@@ -1,17 +1,15 @@
 .graph-select {
   width: var(--graph-width);
-}
-
-.graph-select-grid {
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  gap: 10px;
+  display: flex;
+  gap: 8px;
+  justify-content: space-between;
 }
 
 .graph-select-button {
-  height: 36px;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  height: 24px;
+  width: 100px;
+  border-radius: 15px;
   background: var(--blue-800);
   color: var(--ink-60);
   font-size: 12px;
@@ -19,6 +17,8 @@
   text-transform: uppercase;
   letter-spacing: 0.5px;
   cursor: pointer;
+  align-items: center;
+  justify-content: center;
   transition: background .2s ease, color .2s ease, transform .15s ease, box-shadow .2s ease;
 }
 
@@ -29,15 +29,13 @@
 .graph-select-button-active {
   background: var(--toolbar-active);
   color: var(--accent-pink);
-  border-color: rgba(255, 255, 255, 0.20);
 }
 
 .graph-select-button-stats {
   background: var(--accent-pink);
   color: white;
-  border-color: rgba(255, 255, 255, 0.25);
 }
 
 .graph-select-button-stats:hover {
-  background: #ff477f;
+  background: var(--accent-pink-150);
 }

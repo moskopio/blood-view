@@ -10,29 +10,18 @@ export function GraphSelect() {
   
   const onSelect = useCallback((selectedGraph: GraphType) => {
     stateDispatch({ selectedGraph })
-  }, [stateDispatch]) 
+  }, [stateDispatch])
   
   return (
     <div className='graph-select'>
-      <div className='graph-select-grid'>
-        {GraphTypesValues.map(v => {
-          const cls = [
-            'graph-select-button',
-            v === 'stats' ? 'graph-select-button-stats' : '',
-            v === selectedGraph ? 'graph-select-button-active' : '',
-          ].join(' ');
-          return (
-            <button
-              key={v}
-              type='button'
-              className={cls}
-              onClick={() => onSelect(v)}
-            >
-              {v}
-            </button>
-          )
-        })}
-      </div>
+      {GraphTypesValues.map(v => {
+        const cls = [
+          'graph-select-button',
+          v === 'stats' ? 'graph-select-button-stats' : '',
+          v === selectedGraph ? 'graph-select-button-active' : '',
+        ].join(' ');
+        return <div key={v} className={cls} onClick={() => onSelect(v)}>{v}</div>
+      })}
     </div>
-  );
-};
+  )
+}
