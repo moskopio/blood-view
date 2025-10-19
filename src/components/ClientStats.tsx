@@ -1,9 +1,9 @@
 import { useCallback, useContext, useEffect, useRef, useState } from 'react'
 import { AppContext } from 'src/state'
 import './ClientStats.css'
+import { Client } from 'src/type'
 
 
-// TODO: divide stats select to seperate component!
 export function ClientStats() {
   const { state, stateDispatch } = useContext(AppContext)
   const { clients, selectedClient } = state
@@ -12,7 +12,7 @@ export function ClientStats() {
   const samplesCount = current?.samples.length
 
   const [open, setOpen] = useState(false)
-  const [focusIndex, setFocusIndex] = useState<number>(selectedClient)
+
   const rootRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
@@ -28,8 +28,7 @@ export function ClientStats() {
   
   const onIdClick = useCallback(() => {
     setOpen(open => !open)
-    setFocusIndex(selectedClient)
-  },[setOpen, setFocusIndex])
+  },[setOpen])
   
   const onSelect = useCallback((selectedClient: number) => {
     stateDispatch({ selectedClient})
@@ -38,47 +37,62 @@ export function ClientStats() {
   return (
     <div className='stats' ref={rootRef}>
       <div className='stats-id-root'>
-        <button
-          type='button'
-          className='stats-id-button'
-          onClick={onIdClick}
-          title={current.id}
-        >
+        <div className='stats-id-button' onClick={onIdClick}>
           {current.id}
-          <span className='stats-caret' />
-        </button>
+          <span className='caret' />
+        </div>
 
-        {open && (
-          <div className='stats-menu'>
-            {clients.map((p, i) => (
-              <div
-                key={p.id + i}
-                className={[
-                  'stats-item',
-                  i === selectedClient ? 'stats-item-active' : '',
-                  i === focusIndex ? 'stats-item-focus' : '',
-                ].join(' ')}
-                onClick={() => { onSelect(i); setOpen(false) }}
-                onMouseEnter={() => setFocusIndex(i)}
-              >
-                <span style={{ fontWeight: 800, color: 'var(--accent-pink-150)', textTransform: 'uppercase' }}>
-                  {p.id}
-                </span>
-                <span style={{ color: 'var(--ink-50)', fontSize: 11 }}>{p.birthdate}</span>
-              </div>
-            ))}
-          </div>
-        )}
+        {open && 
+          <ClientSelection 
+            clients={clients} 
+            onClose={() => setOpen(false)} 
+            onSelect={onSelect} 
+            selectedClient={selectedClient} 
+          />
+        }
       </div>
 
       <div className='stats-hr' />
 
-      <div style={{ display: 'grid', gap: 6 }}>
+      <div className='stats-content'>
         <StatsItem label='Birthdate' value={current.birthdate} />
         <StatsItem label='Gender' value={current.gender} />
         <StatsItem label='Ethnicity' value={current.ethnicity} />
         <StatsItem label='Samples' value={samplesCount} />
       </div>
+    </div>
+  )
+}
+
+
+interface ClientSelectionProps {
+  clients: Client[]
+  onClose(): void
+  onSelect(id: number): void
+  selectedClient: number
+}
+
+function ClientSelection(props: ClientSelectionProps) {
+  const { clients,onClose, onSelect, selectedClient} = props
+  const [focusIndex, setFocusIndex] = useState<number>(selectedClient)
+    
+  return (
+    <div className='stats-menu'>
+      {clients.map((p, i) => (
+        <div
+          key={p.id}
+          className={[
+            'item',
+            i === selectedClient ? 'active' : '',
+            i === focusIndex ? 'focus' : '',
+          ].join(' ')}
+          onClick={() => { onSelect(i); onClose() }}
+          onMouseEnter={() => setFocusIndex(i)}
+        >
+          <span className="id">{p.id}</span>
+          <span className="birthdate">{p.birthdate}</span>
+        </div>
+      ))}
     </div>
   )
 }

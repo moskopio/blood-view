@@ -41,7 +41,6 @@ export function DataImport() {
         <input
           value={url}
           onChange={(e) => setUrl(e.target.value)}
-          placeholder='https://example.com/data.json'
           className='data-import-input'
         />
         <button type='button' onClick={() => onLoadUrl?.(url.trim())} className='data-import-button'>

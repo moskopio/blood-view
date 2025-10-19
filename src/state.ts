@@ -18,7 +18,16 @@ interface AppState {
 
 export function createDefaultState() {
   //TOOD: not use mock data!
-  const data = [MockSample01, MockSample02, MockSample03, MockSample04, MockSample05, MockSample06] as ImportedData[]
+  const data = [
+    MockSample01,
+    MockSample02,
+    MockSample03,
+    MockSample04,
+    MockSample05,
+    MockSample06,
+    {...MockSample01, client_id: '123' },
+    {...MockSample01, client_id: '456' },
+  ] as ImportedData[]
   const clients = parseImportedData(data)
   const selectedClient = 0
   const selectedGraph = 'calcium' as GraphType
