@@ -13,6 +13,9 @@ As an alternative way to test the application, a set of mock test data is availa
 While running the application locally, the option to fetch data from a remote server should work without any issues.
 
 
+## Build and local deployment
+Installation and building Blood View locally should be possible with any version of `yarn` and `node`. At the time of creation, `yarn` version `v1.22.22` and `node` version `v22.14.0` were used.
+
 ### Installation:
 ```
 yarn
