@@ -1,5 +1,5 @@
 import { GraphType, GraphTypesValues, Sample } from "src/types"
-import * as d3 from "d3";
+import * as d3 from "d3"
 
 export function prepareSampleData(samples: Sample[], type: GraphType) {
   if (type === 'stats') return []

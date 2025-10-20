@@ -38,14 +38,14 @@ function parseClient(data: ImportedData[]) {
 
 // TODO: Do I really want to process samples to common values? I'm not sure
 function parseSample(data: ImportedData) {
-  const creatine = convertValue(data.creatine, data.creatine_unit);
-  const chloride = convertValue(data.chloride, data.chloride_unit);
-  const glucose = convertValue(data.fasting_glucose, data.fasting_glucose_unit);
-  const potassium = convertValue(data.potassium, data.potassium_unit);
-  const sodium = convertValue(data.sodium, data.sodium_unit);
-  const calcium = convertValue(data.total_calcium, data.total_calcium_unit);
-  const protein = convertValue(data.total_protein, data.total_protein_unit);
-  const date = data.date_testing;
+  const creatine = convertValue(data.creatine, data.creatine_unit)
+  const chloride = convertValue(data.chloride, data.chloride_unit)
+  const glucose = convertValue(data.fasting_glucose, data.fasting_glucose_unit)
+  const potassium = convertValue(data.potassium, data.potassium_unit)
+  const sodium = convertValue(data.sodium, data.sodium_unit)
+  const calcium = convertValue(data.total_calcium, data.total_calcium_unit)
+  const protein = convertValue(data.total_protein, data.total_protein_unit)
+  const date = data.date_testing
   
   return { creatine, chloride, glucose, potassium, sodium, calcium, protein, date }
 }

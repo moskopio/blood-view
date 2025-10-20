@@ -19,7 +19,7 @@ export function GraphSelect() {
           'graph-select-button',
           v === 'stats' ? 'graph-select-button-stats' : '',
           v === selectedGraph ? 'graph-select-button-active' : '',
-        ].join(' ');
+        ].join(' ')
         return <div key={v} className={cls} onClick={() => onSelect(v)}>{v}</div>
       })}
     </div>

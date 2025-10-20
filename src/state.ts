@@ -1,9 +1,8 @@
 import { createContext, Dispatch, useMemo, useReducer } from 'react'
 import { Client, DeepPartial, GraphType, ImportedData } from 'src/types'
-import { MockSample01, MockSample02, MockSample03 } from 'src/utils/ _tests_/mocks'
+import { MockSample01, MockSample02, MockSample03, MockSample04, MockSample05, MockSample06 } from 'src/utils/ _tests_/mocks'
 import { deepSet } from 'src/utils/merge'
 import { parseImportedData } from 'src/utils/parseImportedData'
-
 
 interface State {
   clients:        Client[]
@@ -16,14 +15,19 @@ interface AppState {
   stateDispatch: Dispatch<DeepPartial<State>>
 }
 
-
 function loadStoredData() {
   const storedData = localStorage.getItem('storedData')
   return storedData ? JSON.parse(storedData) as State : {}
 }
 
 function createDefaultData() {
-  const data = [ MockSample01, MockSample02, MockSample03,] as ImportedData[]
+  const data = [ 
+    MockSample01, 
+    MockSample02, 
+    MockSample03, 
+    MockSample04,
+    MockSample05,
+    MockSample06] as ImportedData[]
   const clients = parseImportedData(data)
   const selectedClient = 0
   const selectedGraph = 'calcium' as GraphType
