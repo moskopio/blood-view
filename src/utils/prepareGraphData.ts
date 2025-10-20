@@ -1,13 +1,24 @@
-import { GraphType, Sample } from "src/type"
+import { GraphType, GraphTypesValues, Sample } from "src/type"
+import * as d3 from "d3";
 
-export function prepareGraphData(samples: Sample[], type: GraphType) {
+export function prepareSampleData(samples: Sample[], type: GraphType) {
+  if (type === 'stats') return []
   
-  if (type === 'stats') {
-    return []
-   // generate summary data  
-  } else {
+  return samples.map(sample => ({ date: sample.date, value: sample[type]}))
+}
+
+
+export function prepareStatsData(samples: Sample[], type: GraphType) {
+  if (type !== 'stats') return []
+  
+  return GraphTypesValues.filter(type => type !== 'stats').map(type => {
+    const data = samples.map(sample => sample[type])
+    const name = type
+    const min = d3.min(data) || 0
+    const max = d3.max(data) || 0
+    const avg = d3.mean(data) || 0
+    const median = d3.median(data) || 0
     
-    return samples.map(sample => ({ date: sample.date, value: sample[type]}))
-  }
-  
+    return { name, min, max, avg, median }
+  })
 }

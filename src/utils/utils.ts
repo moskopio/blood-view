@@ -27,3 +27,7 @@ export function isNumber(x: unknown): x is number {
 export function isUnit(value: unknown): value is Unit {
   return typeof value === 'string' && UnitValues.includes(value as Unit)
 }
+
+export function formatSmallValues(v: number) {
+  return v < 10 ? v.toFixed(1) : v.toFixed(0)
+}

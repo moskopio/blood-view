@@ -24,7 +24,7 @@
 .data-import-button {
   height: 22px;
   padding: 0 10px;
-  border-radius: 999px;
+  border-radius: 10px;
   border: 1px solid #0000;
   background: var(--accent-pink);
   color: white;
@@ -39,7 +39,7 @@
 .data-import-input {
   flex: 1;
   height: 22px;
-  border-radius: 999px;
+  border-radius: 10px;
   border: 1px solid #0000;
   background: var(--blue-900);
   color: var(--ink-80);

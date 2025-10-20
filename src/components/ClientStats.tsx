@@ -1,7 +1,7 @@
 import { useCallback, useContext, useEffect, useRef, useState } from 'react'
 import { AppContext } from 'src/state'
-import './ClientStats.css'
 import { Client } from 'src/type'
+import './ClientStats.css'
 
 
 export function ClientStats() {
@@ -56,8 +56,8 @@ export function ClientStats() {
 
       <div className='stats-content'>
         <StatsItem label='Birthdate' value={current.birthdate} />
-        <StatsItem label='Gender' value={current.gender} />
-        <StatsItem label='Ethnicity' value={current.ethnicity} />
+        <StatsItem label='Gender' value={genderToLabel(current.gender)} />
+        <StatsItem label='Ethnicity' value={ethnicityToLabel(current.ethnicity)} />
         <StatsItem label='Samples' value={samplesCount} />
       </div>
     </div>
@@ -110,3 +110,14 @@ function StatsItem({label, value}: ItemProps) {
     </div>
   )
 }
+
+const ethnicityMap = ['human', 'elf', 'half-elf', 'orc', 'halfing', 'lizardman'] as const
+export function ethnicityToLabel(ethnicity: number) {
+  return ethnicityMap[ethnicity] || 'other'
+}
+
+const genderMap = ['female', 'male']
+export function genderToLabel(gender: number) {
+  return genderMap[gender] || 'other'
+}
+

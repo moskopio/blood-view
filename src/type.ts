@@ -20,6 +20,25 @@ export interface Sample {
   sodium:    number
 }
 
+export interface SamplePoint {
+  date:  string
+  value: number
+}
+
+export interface SampleStats {
+  name:   GraphType
+  min:    number
+  max:    number
+  avg:    number
+  median: number
+}
+
+export interface SampleStatsColumn {
+  key:    string
+  value:  number
+  marker: string
+}
+
 export const GraphTypesValues = ['calcium', 'chloride', 'creatine', 'glucose', 'potassium', 'protein', 'sodium', 'stats'] as const
 export type GraphType = typeof GraphTypesValues[number]
 

@@ -1,5 +1,5 @@
 :root {
-  --bg-color: #0f1822;
+  --bg-color: #030329;
   --ink-100: #ffffff;
   --ink-80: #e9f1ff;
   --ink-60: #cfe0ff;
@@ -10,6 +10,7 @@
   --blue-800: #14204d;
   --blue-700: #1c2b5e;
   --blue-600: #22326b;
+  --blue-light: #446398;
 
   --border-weak: rgba(255,255,255,0.10);
   --border-mid: rgba(255,255,255,0.18);
@@ -29,4 +30,6 @@
 
 body {
   background: var(--bg-color);
+  font-family: Inter, system-ui, sans-serif;
+  padding: 12px;
 }

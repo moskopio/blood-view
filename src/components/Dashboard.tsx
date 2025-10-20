@@ -1,6 +1,7 @@
 import { useContext } from 'react'
+import { BloodStatsGraph } from 'src/components/graphs/BloodStats'
 import { AppContext } from 'src/state'
-import { prepareGraphData } from 'src/utils/prepareGraphData'
+import { prepareSampleData } from 'src/utils/prepareGraphData'
 import { ClientStats } from './ClientStats'
 import './Dashboard.css'
 import { DataImport } from './DataImport'
@@ -13,26 +14,28 @@ export function Dashboard() {
   const { clients, selectedClient, selectedGraph } = state
   
   const samples = Object.values(clients[selectedClient].samples)
-  const data = prepareGraphData(samples, selectedGraph)
+  const data = prepareSampleData(samples, selectedGraph)
   
   return (
     <div className='dashboard'>
-      <div className='dashboard-grid'>
-        <div className='dashboard-left'>
-          <ClientStats />
-          <div className='dashboard-horizontal-divider' />
-          <DataImport />
-        </div>
-
-        <div className='dashboard-vertical-divider' />
-
-        <div>
-          <div className='dashboard-right'>
-          <GraphSelect />
-          </div>
-          <BloodSampleGraph data={data} />
-        </div>
+      
+      <div className='left'>
+        <ClientStats />
+        <div className='horizontal-divider' />
+        <DataImport />
       </div>
+
+      <div className='vertical-divider' />
+
+      <div>
+        <div className='right'>
+        <GraphSelect />
+        </div>
+        { selectedGraph === 'stats' 
+          ? <BloodStatsGraph /> 
+          : <BloodSampleGraph /> }
+      </div>
+      
     </div>
   )
 }

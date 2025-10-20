@@ -25,8 +25,8 @@ export function createDefaultState() {
     MockSample04,
     MockSample05,
     MockSample06,
-    {...MockSample01, client_id: '123' },
-    {...MockSample01, client_id: '456' },
+    // {...MockSample01, client_id: '123' },
+    // {...MockSample01, client_id: '456' },
   ] as ImportedData[]
   const clients = parseImportedData(data)
   const selectedClient = 0
