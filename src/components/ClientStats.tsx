@@ -31,7 +31,7 @@ export function ClientStats() {
   },[setOpen])
   
   const onSelect = useCallback((selectedClient: number) => {
-    stateDispatch({ selectedClient})
+    stateDispatch({ selectedClient, selectedGraph: 'stats' })
   },[stateDispatch])
 
   return (
