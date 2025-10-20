@@ -4,18 +4,12 @@
   --ink-80: #e9f1ff;
   --ink-60: #cfe0ff;
   --ink-50: #c6dbff;
-  --ink-40: #bcd6ff;
 
   --blue-900: #0e1a47;
   --blue-800: #14204d;
   --blue-700: #1c2b5e;
   --blue-600: #22326b;
   --blue-light: #446398;
-
-  --border-weak: rgba(255,255,255,0.10);
-  --border-mid: rgba(255,255,255,0.18);
-  --divider: rgba(255,255,255,0.80);
-  --divider-soft: rgba(255,255,255,0.50);
 
   --accent-pink: #ff2a6d;
   --accent-pink-200: #ff7aa7;
@@ -25,7 +19,6 @@
 
   --panel-width: 220px;
   --graph-width: 700px;
-  --graph-height: 350px;
 }
 
 body {

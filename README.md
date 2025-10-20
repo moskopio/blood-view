@@ -1,4 +1,14 @@
 # Blood View
+A simple blood sample visualization app using D3 and React.
 
-A simple blood sample visualization app using D3.
-TODO: fill readme
+Preview of the application is available on Github Pages: https://moskopio.github.io/blood-view
+
+### Installation:
+```
+yarn
+```
+
+### Running Locally:
+```
+yarn dev
+```

@@ -44,9 +44,11 @@
 }
 
 .stats-hr {
-  height: 1px;
-  background: var(--ink-100);
-  margin: 6px 0 8px;
+  height: 2px;
+  background: var(--blue-light);
+  margin-top: 6px;
+  margin-bottom: 8px;
+  margin-left: 20px;
   border-radius: 1px;
 }
 
