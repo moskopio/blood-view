@@ -1,4 +1,4 @@
-import { ImportedData } from "src/type"
+import { ImportedData } from "src/types"
 
 export const MockSample01 = {
   client_id:            "07608686",

@@ -1,4 +1,4 @@
-import { Dict, ImportedData } from "src/type"
+import { Dict, ImportedData } from "src/types"
 import { convertValue } from "src/utils/converters"
 import { validateSample } from "src/utils/validateSample"
 

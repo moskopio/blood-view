@@ -1,12 +1,12 @@
 import * as d3 from 'd3'
 import { useContext, useEffect, useMemo, useRef } from 'react'
 import { AppContext } from 'src/state'
-import { SampleStats, SampleStatsColumn } from 'src/type'
+import { SampleStats, SampleStatsColumn } from 'src/types'
 import { prepareStatsData } from 'src/utils/prepareGraphData'
 import { formatSmallValues } from 'src/utils/utils'
 import { GRID_COLOR, TICK_COLOR } from './utils/consts'
 import { drawLabelSeparators } from './utils/labelSeperators'
-import { useHoverTooltip } from './utils/tooltip'
+import { useHoverTooltip } from './utils/HoverTooltip'
 import { drawVerticalGrid } from './utils/verticalGrid'
 
 

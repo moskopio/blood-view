@@ -1,6 +1,6 @@
 import { useCallback, useContext, useEffect, useRef, useState } from 'react'
 import { AppContext } from 'src/state'
-import { Client } from 'src/type'
+import { Client } from 'src/types'
 import './ClientStats.css'
 
 

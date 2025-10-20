@@ -10,4 +10,15 @@ export default defineConfig({
       src: path.resolve(__dirname, "./src"),
     },
   },
+
+  server: {
+    proxy: {
+      "/mock/data": {
+        target: "https://mockapi-furw4tenlq-ez.a.run.app",
+        changeOrigin: true,
+        secure: true,
+        rewrite: (path) => path.replace(/^\/mock\/data/, "/data"),
+      },
+    },
+  },
 })

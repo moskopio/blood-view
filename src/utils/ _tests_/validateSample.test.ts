@@ -1,4 +1,4 @@
-import { ImportedData } from "src/type"
+import { ImportedData } from "src/types"
 import { MockSample01 } from "src/utils/ _tests_/mocks"
 import { force } from "src/utils/utils"
 import { validateSample } from "src/utils/validateSample"

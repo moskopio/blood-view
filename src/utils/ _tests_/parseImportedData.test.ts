@@ -1,5 +1,5 @@
 
-import { Client, ImportedData } from "src/type"
+import { Client, ImportedData } from "src/types"
 import { MockSample01, MockSample02, MockSample03, MockSample04, MockSample05 } from "src/utils/ _tests_/mocks"
 import { parseImportedData } from "src/utils/parseImportedData"
 import { force } from "src/utils/utils"

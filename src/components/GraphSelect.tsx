@@ -1,6 +1,6 @@
 import { useCallback, useContext } from 'react'
 import { AppContext } from 'src/state'
-import { GraphType, GraphTypesValues } from 'src/type'
+import { GraphType, GraphTypesValues } from 'src/types'
 import './GraphSelect.css'
 
 

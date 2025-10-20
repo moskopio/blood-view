@@ -1,4 +1,4 @@
-import { Unit, UnitValues } from "src/type"
+import { Unit, UnitValues } from "src/types"
 
 export function force<T>(value: unknown) {
   return value as T

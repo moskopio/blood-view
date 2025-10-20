@@ -1,4 +1,4 @@
-import { GraphType, GraphTypesValues, Sample } from "src/type"
+import { GraphType, GraphTypesValues, Sample } from "src/types"
 import * as d3 from "d3";
 
 export function prepareSampleData(samples: Sample[], type: GraphType) {
@@ -6,7 +6,6 @@ export function prepareSampleData(samples: Sample[], type: GraphType) {
   
   return samples.map(sample => ({ date: sample.date, value: sample[type]}))
 }
-
 
 export function prepareStatsData(samples: Sample[], type: GraphType) {
   if (type !== 'stats') return []

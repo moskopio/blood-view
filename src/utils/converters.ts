@@ -1,4 +1,4 @@
-import { Unit } from "src/type"
+import { Unit } from "src/types"
 
 export function mmollToMgdl(mmoll: number) {
   return mmoll * 18.018

@@ -1,4 +1,4 @@
-import { DeepPartial } from "src/type"
+import { DeepPartial } from "src/types"
 import { isObject } from "src/utils/utils"
 
 export function deepSet<T>(target: T, source: T | DeepPartial<T>) {
