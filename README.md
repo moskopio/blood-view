@@ -6,7 +6,7 @@ A simple Blood Samples visualization application, created using D3 and React.
 Preview of the application is available on Github Pages: https://moskopio.github.io/blood-view
 
 
-**Note**: Due to CORSA limitation and issues with Github Pages proxy settings, functionality to load data from remote mock server is currently not working on Github Pages hosted preview.
+**Note**: Due to CORS limitation and issues with Github Pages proxy settings, functionality to load data from remote mock server is currently not working on Github Pages hosted preview.
 
 As an alternative way to test the application, a set of mock test data is available in the repository in form of JSON file: https://github.com/moskopio/blood-view/blob/master/testData.json
 
@@ -25,3 +25,15 @@ yarn
 ```
 yarn dev
 ```
+
+## Known Issues
+* CORS security issues with loading data from a mock server on Github Pages.
+* Statistics graph unnecessarily scales all sample values to mg/dL, making small values too difficult to observe.
+* Color coding of interactable app elements needs improvements.
+* Missing way to communicate errors to users.
+* Some graph animations are behaving unexpectedly on data dimension changes.
+* No option to expand the data set with additional samples, as an alternative to replacing it.
+* Code quality of some of the application parts with missing unit tests.
+* No dynamic scaling of application content depending on window size.
+* No support for mobile screens and interactions.
+* Various typos around the code base.
