@@ -42,9 +42,6 @@ export interface SampleStatsColumn {
 export const GraphTypesValues = ['calcium', 'chloride', 'creatine', 'glucose', 'potassium', 'protein', 'sodium', 'stats'] as const
 export type GraphType = typeof GraphTypesValues[number]
 
-
-  // Calcium, Chloride, Creatine, Glucose, Potassium, Protein, Sodium
-
 export interface Client {
   id:        string
   birthdate: string

@@ -16,6 +16,7 @@ const GRAPH_SETTINGS = {
   MARGIN: { top: 30, right: 30, bottom: 80, left: 60 }
 }
 const CATEGORIES = ['min', 'max', 'avg', 'median'] as const
+const LABELS = ['Calcium', 'Chloride', 'Creatine', 'Glucose', 'Potassium', 'Protein', 'Sodium'] as const
 const STAT_GRADIENTS = {
   min:    ['#29d3ff', '#0a84ff'],
   max:    ['#ff7a45', '#ff1e1e'],
@@ -98,6 +99,22 @@ export function BloodStatsGraph() {
           .attr('rx', 6)
           .attr('fill', d => `url(#grad-${d.key})`)
       )
+      
+  g.append('g')
+    .attr('class', 'bottom-labels')
+    .attr('transform', `translate(0, ${height +15})`)
+    .selectAll('text')
+    .data(LABELS)
+    .join('text')
+    .attr('x', (_d, i) => {
+      const bandWidth = width / LABELS.length
+      return bandWidth * i + bandWidth / 2
+    })
+    .attr('y', 0)
+    .attr('text-anchor', 'middle')
+    .attr('font-size', 12)
+    .attr('fill', TICK_COLOR)
+    .text(d => d)
       
     drawLegend({g, width, height })
     
@@ -183,7 +200,7 @@ interface LegendProps {
 }
 
 function drawLegend({g, height, width } : LegendProps) {
-  const LEG = { sw: 14, sh: 10, gap: 8, itemGap: 96, topOffset: height + 15}
+  const LEG = { sw: 14, sh: 10, gap: 8, itemGap: 96, topOffset: height + 30}
   const items = [
     { key: 'min', label: 'Min' },
     { key: 'max', label: 'Max' },
